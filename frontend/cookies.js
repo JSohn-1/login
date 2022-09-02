@@ -1,5 +1,5 @@
 function manageCookies(){
-    if (document.cookie.length == 0) return
+    if (document.cookie.length != 0) return
     const attr = ['Secure', 'SameSite=Strict']
     let id = 'id='+document.getElementsByName('studid')[0].value+';'
     let name = 'name='+document.getElementsByName('name')[0].value+';'
