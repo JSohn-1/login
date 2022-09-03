@@ -27,14 +27,17 @@ http
 
     if(success.success === true){
       const st = new student(q.id, q.name, q.grade, time.getTime());
-      
-      if(q.login == "entry"){
+      const url = req.url.split("?")[0];
+
+      if(url === "/entry/"){
         database.enter(st);
-      }else if (q.login == "exit"){
+      }else if (url === "/exit/"){
         database.exit(st);
-      }else if (q.login == "flush"){
+      }else if (url === "/flush/"){
         database.createFile();
       }
+
+      console.log(url);
     }
 
     res.end(
