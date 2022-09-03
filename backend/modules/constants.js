@@ -1,5 +1,6 @@
 import time from utils;
 
 class constants{
-    const START = new time(15, 30, 0);
+    static START = new time(15, 30);
+    static END = new time(17, 0);
 }

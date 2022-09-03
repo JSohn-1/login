@@ -1,5 +1,5 @@
 class time{
-    constructor(hour, minute, second){
+    constructor(hour, minute=0, second=0){
         const hour = hour;
         const minute = minute;
         const second = second;
@@ -13,5 +13,13 @@ class time{
 
     getRTime(){
         return self.hour + ':' + self.minute + ':' + self.second;
+    }
+}
+
+class results{
+    constructor(s=true, c=0, r=""){
+        self.success = s;
+        self.code = c;
+        self.reason = r;
     }
 }

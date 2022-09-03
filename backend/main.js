@@ -1,5 +1,5 @@
 import student from database;
-
+import database from database;
 
 var http = require("http");
 var dt = require("./modules/dateTime");
@@ -37,6 +37,13 @@ http
         if(q.login){
 
         }
+    }
+
+    const student = new student(q.username, q.name);
+    if(q.login == true){
+      database.enter(student)
+    }else{
+      database.exit(student);
     }
 
     res.end(
