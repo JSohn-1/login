@@ -1,28 +1,9 @@
-const fs = require("filesystem");
-
-import results from utils;
-import constants from constants;
-class student{
-    constructor(id, name, entry=time.getTime()){
-        self.id = id;
-        self.name = name;
-        self.entry = entry;
-        self.exit = null;
-    }    
-    fix(){
-        if(self.exit == null){
-            self.exit = constants.end;
-        }
-    }
-
-    toDict(){
-        return({name: self.name, id: self.id, grade: self.grade, entry: self.entry.toString(), exit: self.exit.toString()})
-    }
-   
-    toArr(){
-        return([self.name, self.id, self.grade, self.entry.toString(), self.exit.toString()]);
-    }
-}
+const fs = require('fs');
+const student = require('./student.js');
+const results = require('./results.js');
+const constants = require('./constants');
+const time = require('./time');
+const path = require('path');
 
 class database{
     static s = [];
@@ -31,7 +12,7 @@ class database{
         let stu = student;
         let r = new results();
        
-        for(st in self.s){
+        for(let st in this.s){
             if(st.id == student.id && st.name == st.name){
                 r.success = false;
                 r.code = 10;
@@ -41,7 +22,7 @@ class database{
             }
         }
         stu.entry = time.getTime();
-        s.push(student)
+        this.s.push(student)
         return(r);
     }
    
@@ -49,13 +30,13 @@ class database{
         let stu = student;
         let r = new results();
        
-        for(let i = 0; i < s.length; i++){
-            let st = s[i];
+        for(let i = 0; i < this.s.length; i++){
+            let st = this.s[i];
             if(st.id == student.id && st.name == st.name){
-                s[i].exit = time.getTime();
+                this.s[i].exit = time.getTime();
                
                 if(st.entry == null){
-                    s[i].enter = constants.start;
+                    this.s[i].enter = constants.start;
                 }
                 return(r);
             }
@@ -63,25 +44,39 @@ class database{
        
         stu.entry = constants.start;
         stu.exit = time.getTime();
-        self.s.push(stu);
+        this.s.push(stu);
        
         return(r);    
     }
    
-    static createFile(){
-        let output = [["name", "id", "grade", "entry time", "exit time"]];
+    static  createFile(){
+        let output = [["name", "id", "grade", "entry time", "exit time"],];
        
-        for(let i = 0; i < s.length; i++){
-            s[i].fix();
-            output.push(s[i].toArr());
+        for(let i = 0; i < this.s.length; i++){
+            this.s[i].fix();
+            output.push(this.s[i].toArr());
         }
        
         let oStr = "";
-        for(o in output){
-            oStr += o.join() + "\n";
+        console.log(output);
+        for(let i = 0; i < output.length; i++){
+            oStr += output[i].join() + "\n";
         }
        
-        fs.writeFile((constants.club + " - " + time.getDate()) + ".csv", oStr);
+        //console.log(oStr);
+        console.log(__dirname);
+
+         fs.writeFileSync(path.join(__dirname, constants.CLUB + " - " + time.getDate() + ".csv"), oStr, (err) =>{
+            if(err){
+                throw err;
+            }else{
+                console.log("success");
+            }
+        });
+        //})
+        
+        
     }
 }
 
+module.exports = database;
