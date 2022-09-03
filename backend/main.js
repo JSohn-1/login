@@ -1,7 +1,12 @@
+import student from database;
+
+
 var http = require("http");
 var dt = require("./modules/dateTime");
 var url = require("url");
 var util = require("./modules/utils");
+
+
 
 http
   .createServer(function (req, res) {
@@ -26,6 +31,12 @@ http
         success['code'] = 20;
         success['reason'] = "No username given";
 
+    }
+
+    if(success['success'] === true){
+        if(q.login){
+
+        }
     }
 
     res.end(

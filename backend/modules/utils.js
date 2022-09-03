@@ -1,22 +1,17 @@
-exports.checkCreds = function(p){
-    var output = {};
-    output['success'] = true;
-    output['code'] = 40;
-    output['reason'] = "none";
-
-    if(p.name == undefined){
-        output['success'] = false;
-        output['code'] = 10
-        output['reason'] = 'No name given';
-
+class time{
+    constructor(hour, minute, second){
+        const hour = hour;
+        const minute = minute;
+        const second = second;
     }
 
-    if(p.username == undefined){
-        output['success'] = false;
-        output['code'] = 20;
-        output['reason'] = "No username given";
+    static getTime(){
+        const cur = new Date();
 
+        return new self(cur.getHours(), cur.getMinutes(), cur.getSeconds());
     }
 
-    return output;
+    getRTime(){
+        return self.hour + ':' + self.minute + ':' + self.second;
+    }
 }
