@@ -36,16 +36,16 @@ class database{
                 this.s[i].exit = time.getTime();
                
                 if(st.entry == null){
-                    this.s[i].enter = constants.start;
+                    this.s[i].enter = constants.START;
                 }
                 return(r);
             }
         }
        
-        stu.entry = constants.start;
+        stu.entry = constants.START;
         stu.exit = time.getTime();
         this.s.push(stu);
-       
+
         return(r);    
     }
    
@@ -58,13 +58,10 @@ class database{
         }
        
         let oStr = "";
-        console.log(output);
+
         for(let i = 0; i < output.length; i++){
             oStr += output[i].join() + "\n";
         }
-       
-        //console.log(oStr);
-        console.log(__dirname);
 
          fs.writeFileSync(path.join(__dirname, constants.CLUB + " - " + time.getDate() + ".csv"), oStr, (err) =>{
             if(err){

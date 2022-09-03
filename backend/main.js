@@ -35,9 +35,8 @@ http
         database.exit(st);
       }else if (url === "/flush/"){
         database.createFile();
+        database.s = [];
       }
-
-      console.log(url);
     }
 
     res.end(
