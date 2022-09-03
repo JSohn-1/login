@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Alpha Knights Authentication </title>
+    <link rel="icon" href="icon.png">
+
+    <style>
+        body {
+            font-family: "Verdana", sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        div {
+            width: 40%;
+        }
+        
+        .MainWindow {
+            position: relative;
+            padding: 1em 0em 1em 0em;
+            align-items: center;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin: 0 auto 0.5em;
+        }
+        input {
+            display: block;
+            margin: auto;
+            background-color: rgb(1,25,100);
+            color: rgb(255,255,255);
+            border-radius: 10px;
+            width: 100%;
+            height: 30px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        button {
+            font-family: "Verdana", sans-serif;
+            padding: 0.75em 1.0em 0.75em 1.0em;
+            color: rgb(255,255,255);
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            opacity: 100%;
+            transition: opacity 0.1s;
+        }
+        button:hover{
+            opacity: 75%;
+            transition: opacity 0.1s;
+            cursor: pointer;
+        }
+        button:disabled, .ButtonHolder>button[disabled]{
+            opacity: 100%;
+            cursor: not-allowed;
+        }
+
+        #signin {
+            background-color: rgb(1,25,100);
+        }
+        #signout {
+            background-color:rgb(100,25,1)
+        } 
+        #signin:disabled, #signout:disabled {
+            background-color: rgb(60,60,60);
+        }
+
+    </style>
+    <script src='cookies.js'></script>
+    <script>
+        function buttonToggle(){
+            document.querySelector('#signin').disabled = true;
+            document.querySelector('#signout').disabled = false;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="MainWindow">
+        <label for="studid">Student ID:</label>
+        <input type="text" name="studid"><br>
+        <label for="name">Full Name:</label>
+        <input type="text" name="name"><br>
+        <button type="button" id="signin" style="margin-left: auto; margin-right: 1em;" onclick="buttonToggle(), manageCookies()">Sign in</button>
+        <button type="button" id="signout" onclick="buttonToggle(), manageCookies()">Sign out</button>
+    </div>
+</body>
+
+</html>
