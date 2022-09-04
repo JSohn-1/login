@@ -30,11 +30,11 @@ http
       const url = req.url.split("?")[0];
 
       if(url === "/entry/"){
-        database.enter(st);
+        success = database.enter(st);
       }else if (url === "/exit/"){
-        database.exit(st);
+        success = database.exit(st);
       }else if (url === "/flush/"){
-        database.createFile();
+        success = database.createFile();
         database.s = [];
       }
     }
@@ -50,4 +50,4 @@ http
       )
     );
   })
-  .listen(8080);
+  .listen(constants.PORT);
