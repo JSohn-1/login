@@ -63,7 +63,7 @@ class database{
             oStr += output[i].join() + "\n";
         }
 
-         fs.writeFileSync(path.join(__dirname, constants.CLUB + " - " + time.getDate() + ".csv"), oStr, (err) =>{
+         fs.writeFile(path.join(_constants.FILESTORAGE, constants.CLUB + " - " + time.getDate() + ".csv"), oStr, (err) =>{
             if(err){
                 throw err;
             }else{
