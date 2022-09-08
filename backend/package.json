@@ -10,6 +10,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "mkdirp": "^1.0.4"
+    "node-schedule": "^2.1.0"
   }
 }
