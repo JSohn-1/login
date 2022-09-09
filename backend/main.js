@@ -7,16 +7,15 @@ const url = require("url");
 const constants = require('./modules/constants.js');
 const schedule = require('node-schedule');
 
-const time = new schedule.RecurrenceRule();
-time.hour = 0;
-time.tz = "America/Los_Angeles"
+const rule = new schedule.RecurrenceRule();
+rule.hour = 0;
+rule.tz = "America/Los_Angeles"
 
-const job = schedule.scheduleJob(time, () => {
+const job = schedule.scheduleJob(rule, () => {
   if(database.s.length > 0){
     database.createFile(true);
-    database.delete();
-    database.s = [];
   }
+  database.s = [];
 })
 
 http

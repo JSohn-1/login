@@ -37,7 +37,7 @@ class database{
                 this.s[i].exit = time.getTime();
                
                 if(st.entry == null){
-                    this.s[i].enter = constants.START;
+                    this.s[i].entry = constants.START;
                 }
                 return(r);
             }
