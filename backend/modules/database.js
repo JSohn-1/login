@@ -15,7 +15,7 @@ class database{
        
         for(let i in this.s){
             let st = this.s[i];
-            if(st.id == stu.id && st.name == stu.name){
+            if(st.id == stu.id && st.name == stu.name && st.grade == stu.grade){
                 r.success = false;
                 r.code = 10;
                 r.reason = "Already in database";
@@ -34,7 +34,7 @@ class database{
        
         for(let i = 0; i < this.s.length; i++){
             let st = this.s[i];
-            if(st.id == student.id && st.name == st.name){
+            if(st.id == stu.id && st.name == stu.name && st.grade == stu.grade){
                 this.s[i].exit = time.getTime();
                
                 if(st.entry == null){

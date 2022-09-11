@@ -1,10 +1,10 @@
-const student = require("./modules/student.js");
-const database = require("./modules/database.js");
-const results = require("./modules/results.js");
+const student = require("./modules/student");
+const database = require("./modules/database");
+const results = require("./modules/results");
 const time = require("./modules/time.js");
 const http = require("http");
 const url = require("url");
-const constants = require("./modules/constants.js");
+const constants = require("./modules/constants");
 const schedule = require("node-schedule");
 
 const rule = new schedule.RecurrenceRule();
