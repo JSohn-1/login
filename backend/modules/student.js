@@ -22,6 +22,10 @@ class student{
     toArr(){
         return([this.name, this.id, this.grade, this.entry.toString(), this.exit.toString()]);
     }
+
+    toString(){
+        return(this.name)
+    }
 }
 
 module.exports = student;

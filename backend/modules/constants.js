@@ -1,4 +1,4 @@
-const time = require('./time.js');
+const time = require('./time');
 const path = require('path');
 
 class constants{

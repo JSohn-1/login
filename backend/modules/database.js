@@ -1,6 +1,6 @@
 const fs = require('fs');
-const student = require('./student.js');
-const results = require('./results.js');
+const student = require('./student');
+const results = require('./results');
 const constants = require('./constants');
 const time = require('./time');
 const path = require('path');
@@ -13,8 +13,9 @@ class database{
         let stu = student;
         let r = new results();
        
-        for(let st in this.s){
-            if(st.id == student.id && st.name == st.name){
+        for(let i in this.s){
+            let st = this.s[i];
+            if(st.id == stu.id && st.name == stu.name){
                 r.success = false;
                 r.code = 10;
                 r.reason = "Already in database";
@@ -23,10 +24,10 @@ class database{
             }
         }
         stu.entry = time.getTime();
-        this.s.push(student)
+        this.s.push(stu)
         return(r);
     }
-   
+
     static exit(student){
         let stu = student;
         let r = new results();
@@ -49,7 +50,7 @@ class database{
 
         return(r);    
     }
-   
+
     static createFile(write){
         let output = [["name", "id", "grade", "entry time", "exit time"],];
         let r = new results();
