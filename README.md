@@ -7,7 +7,7 @@ If a user doesn't login, their enter time is set to as when the club meeting sta
 
 ### Request methods:
 (Make sure to use post when firing)
-(All contain JSONs as responsees)
+(All contain JSONs as responses)
 
 #### /gen/
 Paramters: none  
