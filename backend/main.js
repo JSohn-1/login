@@ -8,10 +8,12 @@ const constants = require("./modules/constants");
 const schedule = require("node-schedule");
 
 const rule = new schedule.RecurrenceRule();
-rule.hour = 0;
+rule.hour = 23;
+rule.minute = 59;
 rule.tz = "America/Los_Angeles";
 
 const job = schedule.scheduleJob(rule, () => {
+  console.log("auto")
   if (database.s.length > 0) {
     database.createFile(true);
   }
