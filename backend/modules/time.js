@@ -21,23 +21,23 @@ class time{
         let h = this.hour;
         let m = this.minute;
         let s = this.second;
-        
-        if(this.hour == 0){
+
+        if(h == 0){
             h = "00";
-        }else if(this.hour < 0){
-            h = "0" + this.hour;
+        }else if(h < 0){
+            h = "0" + h;
         }
 
-        if(this.minute == 0){
+        if(m == 0){
             m = "00";
-        }else if(this.minute < 0){
-            m = "0" + this.minute;
+        }else if(m < 0){
+            m = "0" + m;
         }
 
-        if(this.second == 0){
+        if(s == 0){
             s = "00";
-        }else if(this.second < 0){
-            s = "0" + this.second;
+        }else if(s < 0){
+            s = "0" + s;
         }
         return h + ':' + m + ':' + s;
     }
